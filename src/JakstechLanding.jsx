@@ -10,75 +10,220 @@ const JakstechLanding = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-16 sm:py-24 bg-linear-to-br from-slate-50 to-blue-50">
+      {/* Rumbo Hero Section */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Desarrollo de Software, Automatización y Soluciones Tecnológicas
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600">
-              Transformamos ideas en soluciones digitales innovadoras para impulsar tu negocio
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="mb-6">
+                <img
+                  src="/images/rumbo_logo.png"
+                  alt="Rumbo Logo"
+                  className="h-20 sm:h-24 w-auto"
+                />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Aprende y Crece con Rumbo
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-600 mb-8">
+                La aplicación educativa que transforma tu forma de aprender. Contenido interactivo, seguimiento personalizado y herramientas que te impulsan al éxito.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#planes-rumbo"
+                  className="bg-purple-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-purple-700 transition-colors duration-300 text-center"
+                >
+                  Ver Planes
+                </a>
+                <a
+                  href="#rumbo-features"
+                  className="bg-white text-purple-600 border-2 border-purple-600 font-medium py-3 px-8 rounded-lg hover:bg-purple-50 transition-colors duration-300 text-center"
+                >
+                  Conocer Más
+                </a>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <img
+                src="/images/llamasinfondof.png"
+                alt="Mascota Rumbo"
+                className="w-full max-w-md h-auto drop-shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* Rumbo Features */}
+      <section id="rumbo-features" className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-12">
-            Nuestros Servicios
+            ¿Por qué elegir Rumbo?
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Desarrollo de Software</h4>
-              <p className="text-gray-600">Aplicaciones web y móviles a medida</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Contenido de Calidad</h4>
+              <p className="text-gray-600">Material educativo creado por expertos, adaptado a tu nivel de aprendizaje</p>
             </div>
             <div className="text-center p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Automatización</h4>
-              <p className="text-gray-600">Optimización de procesos empresariales</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Seguimiento Personalizado</h4>
+              <p className="text-gray-600">Monitorea tu progreso y recibe recomendaciones basadas en tu desempeño</p>
             </div>
             <div className="text-center p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">Soluciones Tecnológicas</h4>
-              <p className="text-gray-600">Consultoría e integración de sistemas</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Aprendizaje Interactivo</h4>
+              <p className="text-gray-600">Ejercicios prácticos, quizzes y actividades que hacen el aprendizaje divertido</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="planes" className="py-16 sm:py-20 bg-gray-50">
+      {/* Rumbo Pricing Section */}
+      <section id="planes-rumbo" className="py-16 sm:py-20 bg-gradient-to-br from-purple-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-              Planes de Suscripción
+              Planes de Rumbo
             </h3>
-            <p className="text-gray-600">Elige el plan que mejor se adapte a tus necesidades</p>
+            <p className="text-gray-600">Comienza gratis o desbloquea todo el potencial con Premium</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Plan Básico */}
+            {/* Plan Gratis */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="mb-8">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Plan Básico</h4>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Plan Gratis</h4>
                 <div className="flex items-baseline">
-                  <span className="text-4xl font-bold text-gray-900">$49</span>
+                  <span className="text-4xl font-bold text-gray-900">S/0</span>
+                  <span className="text-gray-600 ml-2">/mes</span>
+                </div>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Acceso a cursos básicos</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Seguimiento de progreso básico</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Ejercicios interactivos limitados</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Comunidad de estudiantes</span>
+                </li>
+              </ul>
+
+              <button className="w-full bg-gray-900 text-white font-medium py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+                Comenzar Gratis
+              </button>
+            </div>
+
+            {/* Plan Premium */}
+            <div className="bg-white rounded-2xl shadow-lg border-2 border-purple-600 p-8 relative hover:shadow-xl transition-shadow duration-300">
+              <div className="absolute top-0 right-8 transform -translate-y-1/2">
+                <span className="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                  Recomendado
+                </span>
+              </div>
+
+              <div className="mb-8">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Plan Premium</h4>
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-bold text-gray-900">S/29</span>
+                  <span className="text-gray-600 ml-2">/mes</span>
+                </div>
+              </div>
+
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Acceso ilimitado a todos los cursos</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Seguimiento avanzado y estadísticas</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Contenido exclusivo y nuevos cursos</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Certificados digitales</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Soporte prioritario</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-700">Sin anuncios</span>
+                </li>
+              </ul>
+
+              <button className="w-full bg-purple-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-300">
+                Obtener Premium
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* JAKS Tech Services Section */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Servicios de JAKS Tech
+            </h3>
+            <p className="text-gray-600">También ofrecemos desarrollo de software y soluciones tecnológicas para empresas</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Desarrollo de Software */}
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 hover:shadow-lg transition-shadow duration-300">
+              <div className="mb-8">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Desarrollo de Software</h4>
+                <div className="flex items-baseline">
+                  <span className="text-4xl font-bold text-gray-900">S/149</span>
                   <span className="text-gray-600 ml-2">/mes</span>
                 </div>
               </div>
@@ -111,22 +256,16 @@ const JakstechLanding = () => {
               </ul>
 
               <button className="w-full bg-gray-900 text-white font-medium py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
-                Suscribirse
+                Consultar
               </button>
             </div>
 
-            {/* Plan Pro */}
-            <div className="bg-white rounded-2xl shadow-lg border-2 border-blue-600 p-8 relative hover:shadow-xl transition-shadow duration-300">
-              <div className="absolute top-0 right-8 transform -translate-y-1/2">
-                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                  Recomendado
-                </span>
-              </div>
-
+            {/* Soluciones Empresariales */}
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 hover:shadow-lg transition-shadow duration-300">
               <div className="mb-8">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Plan Pro</h4>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Soluciones Empresariales</h4>
                 <div className="flex items-baseline">
-                  <span className="text-4xl font-bold text-gray-900">$99</span>
+                  <span className="text-4xl font-bold text-gray-900">S/299</span>
                   <span className="text-gray-600 ml-2">/mes</span>
                 </div>
               </div>
@@ -142,30 +281,24 @@ const JakstechLanding = () => {
                   <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700">Acceso completo a todas las funcionalidades</span>
+                  <span className="text-gray-700">Soluciones personalizadas</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700">Actualizaciones mayores y nuevas versiones</span>
+                  <span className="text-gray-700">Integración de sistemas</span>
                 </li>
                 <li className="flex items-start">
                   <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-gray-700">Consultoría personalizada mensual</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700">Personalización avanzada</span>
+                  <span className="text-gray-700">Consultoría especializada</span>
                 </li>
               </ul>
 
-              <button className="w-full bg-blue-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
-                Suscribirse
+              <button className="w-full bg-gray-900 text-white font-medium py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors duration-300">
+                Consultar
               </button>
             </div>
           </div>
@@ -214,7 +347,7 @@ const JakstechLanding = () => {
                   </svg>
                   <span className="font-medium text-gray-900">RUC:</span>
                 </div>
-                <span className="text-gray-700">20XXXXXXXXXXX</span>
+                <span className="text-gray-700">20614811804</span>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center">
@@ -246,8 +379,13 @@ const JakstechLanding = () => {
               <h5 className="font-bold text-lg mb-4">Enlaces Rápidos</h5>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#planes" className="text-gray-400 hover:text-white transition-colors">
-                    Planes
+                  <a href="#rumbo-features" className="text-gray-400 hover:text-white transition-colors">
+                    Rumbo
+                  </a>
+                </li>
+                <li>
+                  <a href="#planes-rumbo" className="text-gray-400 hover:text-white transition-colors">
+                    Planes Rumbo
                   </a>
                 </li>
                 <li>
@@ -280,7 +418,7 @@ const JakstechLanding = () => {
               &copy; {new Date().getFullYear()} JAKS Tech SAC. Todos los derechos reservados.
             </p>
             <p className="text-gray-500 text-xs mt-2">
-              RUC: 20XXXXXXXXXXX | Lima, Perú
+              RUC: 20614811804 | Lima, Perú
             </p>
           </div>
         </div>
