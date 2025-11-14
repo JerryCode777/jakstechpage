@@ -1,20 +1,33 @@
 # Estructura de Assets
 
-Esta carpeta contiene todos los recursos estáticos utilizados en la página web de Rumbo.
+Esta carpeta contiene todos los recursos estáticos procesados por Vite utilizados en la página web de Rumbo.
 
 ## Organización de carpetas
 
 ```
-public/
+src/assets/
 ├── images/
 │   ├── logos/          # Logotipos de la marca
 │   │   └── rumbo_logo.png
 │   └── illustrations/  # Ilustraciones y mascotas
 │       └── llamasinfondof.png
-├── icons/              # Iconos e íconos de la aplicación (favicon, etc.)
+├── icons/              # Iconos e íconos de la aplicación
 ├── fonts/              # Fuentes personalizadas
-└── vite.svg
+└── README.md
 ```
+
+## Diferencia entre src/assets/ y public/
+
+**src/assets/** (USAR ESTO):
+- Archivos procesados y optimizados por Vite durante el build
+- Se importan en componentes: `import logo from '@/assets/images/logos/rumbo_logo.png'`
+- Obtienen hash en el nombre para cache-busting automático
+- Se optimizan y comprimen automáticamente
+
+**public/**:
+- Solo para archivos que necesitan URL exacta (robots.txt, manifest.json, etc.)
+- No se procesan ni optimizan
+- Se copian tal cual al build
 
 ## Guía de uso
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import RumboLogo from '../components/RumboLogo';
+import llamaMascot from '../assets/images/illustrations/llamasinfondof.png';
 // import Lottie from 'lottie-react';
 // import boyPencilAnimation from '../assets/boy-pencil.json'; // Descomenta cuando tengas el archivo
 
@@ -55,7 +56,7 @@ const Home = () => {
 
                 {/* Imagen temporal - reemplazar con Lottie */}
                 <img
-                  src="/images/illustrations/llamasinfondof.png"
+                  src={llamaMascot}
                   alt="Rumbo Mascot"
                   className="relative w-full h-auto drop-shadow-2xl animate-bounce-slow"
                 />

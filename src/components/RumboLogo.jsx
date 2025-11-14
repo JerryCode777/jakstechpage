@@ -1,4 +1,5 @@
 import React from 'react';
+import rumboLogo from '../assets/images/logos/rumbo_logo.png';
 
 const RumboLogo = () => {
   return (
@@ -6,7 +7,7 @@ const RumboLogo = () => {
       {/* Logo PNG */}
       <div className="mb-2">
         <img
-          src={`/images/logos/rumbo_logo.png?v=${Date.now()}`}
+          src={rumboLogo}
           alt="Rumbo Logo"
           className="h-16 w-auto"
         />

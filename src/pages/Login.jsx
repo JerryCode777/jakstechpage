@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import rumboLogo from '../assets/images/logos/rumbo_logo.png';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const Login = () => {
         {/* Logo and Title */}
         <div className="text-center">
           <div className="flex justify-center mb-6">
-            <img src="/images/logos/rumbo_logo.png" alt="Rumbo" className="h-16 w-auto" />
+            <img src={rumboLogo} alt="Rumbo" className="h-16 w-auto" />
           </div>
           <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white">
             Iniciar Sesión
