@@ -55,7 +55,7 @@ const Home = () => {
 
                 {/* Imagen temporal - reemplazar con Lottie */}
                 <img
-                  src="/images/llamasinfondof.png"
+                  src="/images/illustrations/llamasinfondof.png"
                   alt="Rumbo Mascot"
                   className="relative w-full h-auto drop-shadow-2xl animate-bounce-slow"
                 />

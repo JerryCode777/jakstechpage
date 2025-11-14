@@ -6,7 +6,7 @@ const RumboLogo = () => {
       {/* Logo PNG */}
       <div className="mb-2">
         <img
-          src={`/images/rumbo_logo.png?v=${Date.now()}`}
+          src={`/images/logos/rumbo_logo.png?v=${Date.now()}`}
           alt="Rumbo Logo"
           className="h-16 w-auto"
         />

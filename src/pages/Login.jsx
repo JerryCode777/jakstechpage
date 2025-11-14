@@ -52,7 +52,7 @@ const Login = () => {
         {/* Logo and Title */}
         <div className="text-center">
           <div className="flex justify-center mb-6">
-            <img src="/images/rumbo_logo.png" alt="Rumbo" className="h-16 w-auto" />
+            <img src="/images/logos/rumbo_logo.png" alt="Rumbo" className="h-16 w-auto" />
           </div>
           <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white">
             Iniciar Sesión
