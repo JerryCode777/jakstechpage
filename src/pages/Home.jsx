@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import RumboLogo from '../components/RumboLogo';
 import LottieAnimation from '../components/LottieAnimation';
+import llamaMascot from '../assets/images/illustrations/llamasinfondof.png';
 
 // Importar animaciones
-import boyOnPencil from '../assets/animations/education/boy_on_pencil.lottie';
 import reading from '../assets/animations/education/reading.lottie';
 import progress from '../assets/animations/education/progress.lottie';
 import achievement from '../assets/animations/education/achievement.lottie';
@@ -51,20 +51,18 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Lado derecho: Animación Lottie */}
+            {/* Lado derecho: Mascota Rumbo */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-full max-w-lg">
                 {/* Efecto de brillo de fondo */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2968FB]/20 to-[#A42EFF]/20 blur-3xl rounded-full"></div>
 
-                {/* Animación Boy on Pencil */}
-                <div className="relative">
-                  <LottieAnimation
-                    src={boyOnPencil}
-                    loop={true}
-                    className="w-full h-auto drop-shadow-2xl"
-                  />
-                </div>
+                {/* Imagen de la llama */}
+                <img
+                  src={llamaMascot}
+                  alt="Rumbo Mascot"
+                  className="relative w-full h-auto drop-shadow-2xl animate-bounce-slow"
+                />
               </div>
             </div>
           </div>
