@@ -278,11 +278,11 @@ export default function SubscriptionForm() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Sistema de Suscripciones Culqi</h1>
+      <h1 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Sistema de Suscripciones Culqi</h1>
 
       {/* Mensaje de estado */}
       {message && (
-        <div className={`mb-4 p-4 rounded ${message.includes('Error') ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+        <div className={`mb-4 p-4 rounded border ${message.includes('Error') ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-200 border-red-200 dark:border-red-800' : 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-200 border-green-200 dark:border-green-800'}`}>
           {message}
         </div>
       )}
@@ -290,11 +290,11 @@ export default function SubscriptionForm() {
       {/* Paso 1: Seleccionar Plan */}
       {step === 1 && (
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Paso 1: Selecciona tu Plan</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Paso 1: Selecciona tu Plan</h2>
 
           {plans.length === 0 ? (
-            <div className="bg-yellow-50 border border-yellow-200 p-4 rounded mb-4">
-              <p className="text-sm text-yellow-800">
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-4 rounded mb-4">
+              <p className="text-sm text-yellow-800 dark:text-yellow-200">
                 <strong>Cargando planes...</strong> Si no aparecen planes, verifica que hayas creado al menos uno en tu panel de Culqi.
               </p>
             </div>
@@ -307,21 +307,23 @@ export default function SubscriptionForm() {
                     setSelectedPlan(plan);
                     setStep(2);
                   }}
-                  className={`border rounded-lg p-4 cursor-pointer transition-all hover:shadow-lg hover:border-blue-500 ${
-                    selectedPlan?.id === plan.id ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
-                  }`}
+                  className={`border rounded-lg p-4 cursor-pointer transition-all hover:shadow-lg ${
+                    selectedPlan?.id === plan.id
+                      ? 'border-[#2968FB] bg-blue-50 dark:bg-blue-900/20'
+                      : 'border-gray-300 dark:border-gray-700 hover:border-[#2968FB] dark:hover:border-[#2968FB]'
+                  } bg-white dark:bg-[#0b0e16]`}
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-xl font-semibold">{plan.name}</h3>
-                      <p className="text-gray-600 text-sm mt-1">{plan.description}</p>
-                      <p className="text-xs text-gray-500 mt-2">ID: {plan.id}</p>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{plan.name}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{plan.description}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">ID: {plan.id}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-blue-600">
+                      <p className="text-2xl font-bold text-[#2968FB]">
                         {plan.currency} {(plan.amount / 100).toFixed(2)}
                       </p>
-                      <p className="text-sm text-gray-500">por mes</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">por mes</p>
                     </div>
                   </div>
                 </div>
@@ -334,10 +336,10 @@ export default function SubscriptionForm() {
       {/* Paso 2: Confirmar Datos */}
       {step === 2 && (
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Paso 2: Confirmar Información</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Paso 2: Confirmar Información</h2>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-            <p className="text-sm text-blue-800">
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
+            <p className="text-sm text-blue-800 dark:text-blue-200">
               <strong>Plan seleccionado:</strong> {selectedPlan?.name} - {selectedPlan?.currency} {(selectedPlan?.amount / 100).toFixed(2)}/mes
             </p>
           </div>
@@ -350,34 +352,34 @@ export default function SubscriptionForm() {
             className="space-y-4"
           >
             {/* Datos auto-completados - Solo lectura */}
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
-              <h3 className="font-semibold mb-3 text-gray-700">Tus Datos</h3>
+            <div className="bg-gray-50 dark:bg-[#1b1d2d] p-4 rounded border border-gray-200 dark:border-gray-700">
+              <h3 className="font-semibold mb-3 text-gray-700 dark:text-gray-300">Tus Datos</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Nombre</label>
+                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Nombre</label>
                   <input
                     type="text"
                     value={customerData.firstName}
-                    className="w-full border rounded px-3 py-2 bg-white text-gray-700"
+                    className="w-full border rounded px-3 py-2 bg-white dark:bg-[#0b0e16] text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700"
                     disabled
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-1">Apellido</label>
+                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Apellido</label>
                   <input
                     type="text"
                     value={customerData.lastName}
-                    className="w-full border rounded px-3 py-2 bg-white text-gray-700"
+                    className="w-full border rounded px-3 py-2 bg-white dark:bg-[#0b0e16] text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700"
                     disabled
                   />
                 </div>
               </div>
               <div className="mt-3">
-                <label className="block text-sm font-medium text-gray-600 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Email</label>
                 <input
                   type="email"
                   value={customerData.email}
-                  className="w-full border rounded px-3 py-2 bg-white text-gray-700"
+                  className="w-full border rounded px-3 py-2 bg-white dark:bg-[#0b0e16] text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700"
                   disabled
                 />
               </div>
@@ -385,30 +387,30 @@ export default function SubscriptionForm() {
 
             {/* Solo pedir teléfono si no lo tiene */}
             <div>
-              <label className="block text-sm font-medium mb-1">Teléfono</label>
+              <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Teléfono</label>
               <input
                 type="tel"
                 value={customerData.phoneNumber}
                 onChange={(e) => setCustomerData({ ...customerData, phoneNumber: e.target.value })}
-                className="w-full border rounded px-3 py-2"
+                className="w-full border rounded px-3 py-2 bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 focus:border-[#2968FB] focus:ring-2 focus:ring-[#2968FB]/20 transition-all"
                 placeholder="987654321"
                 required
               />
-              <p className="text-xs text-gray-500 mt-1">Necesitamos tu teléfono para confirmar la suscripción</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Necesitamos tu teléfono para confirmar la suscripción</p>
             </div>
 
             <div className="flex gap-2 pt-4">
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="bg-gray-300 text-gray-700 px-6 py-2 rounded hover:bg-gray-400 transition-colors"
+                className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-6 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
               >
                 Atrás
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded hover:from-purple-700 hover:to-blue-700 disabled:opacity-50 transition-all font-medium"
+                className="flex-1 bg-[#2968FB] text-white px-6 py-2 rounded hover:bg-[#1e54d4] disabled:opacity-50 transition-all font-medium"
               >
                 {loading ? 'Procesando...' : 'Continuar al Pago →'}
               </button>
@@ -420,68 +422,68 @@ export default function SubscriptionForm() {
       {/* Paso 3: Datos de la Tarjeta */}
       {step === 3 && (
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Paso 3: Datos de la Tarjeta</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Paso 3: Datos de la Tarjeta</h2>
           <form
             onSubmit={handlePayment}
             className="space-y-4"
           >
             <div>
-              <label className="block text-sm font-medium mb-1">Email</label>
+              <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Email</label>
               <input
                 type="email"
                 data-culqi="card[email]"
                 defaultValue={customerData.email}
-                className="w-full border rounded px-3 py-2"
+                className="w-full border rounded px-3 py-2 bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 focus:border-[#2968FB] focus:ring-2 focus:ring-[#2968FB]/20 transition-all"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Número de Tarjeta</label>
+              <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Número de Tarjeta</label>
               <input
                 type="text"
                 data-culqi="card[number]"
                 placeholder="4111111111111111"
-                className="w-full border rounded px-3 py-2"
+                className="w-full border rounded px-3 py-2 bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 focus:border-[#2968FB] focus:ring-2 focus:ring-[#2968FB]/20 transition-all placeholder-gray-400 dark:placeholder-gray-500"
                 required
               />
             </div>
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Mes</label>
+                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Mes</label>
                 <input
                   type="text"
                   data-culqi="card[exp_month]"
                   placeholder="12"
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border rounded px-3 py-2 bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 focus:border-[#2968FB] focus:ring-2 focus:ring-[#2968FB]/20 transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   maxLength="2"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">Año</label>
+                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">Año</label>
                 <input
                   type="text"
                   data-culqi="card[exp_year]"
                   placeholder="2025"
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border rounded px-3 py-2 bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 focus:border-[#2968FB] focus:ring-2 focus:ring-[#2968FB]/20 transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   maxLength="4"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1">CVV</label>
+                <label className="block text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">CVV</label>
                 <input
                   type="text"
                   data-culqi="card[cvv]"
                   placeholder="123"
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border rounded px-3 py-2 bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white border-gray-300 dark:border-gray-700 focus:border-[#2968FB] focus:ring-2 focus:ring-[#2968FB]/20 transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   maxLength="4"
                   required
                 />
               </div>
             </div>
-            <div className="bg-yellow-50 border border-yellow-200 p-4 rounded">
-              <p className="text-sm text-yellow-800">
+            <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 p-4 rounded">
+              <p className="text-sm text-yellow-800 dark:text-yellow-200">
                 <strong>Tarjeta de prueba:</strong> 4111111111111111, CVV: 123, Mes: 12, Año: 2025
               </p>
             </div>
@@ -489,14 +491,14 @@ export default function SubscriptionForm() {
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="bg-gray-300 text-gray-700 px-6 py-2 rounded hover:bg-gray-400"
+                className="bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-6 py-2 rounded hover:bg-gray-400 dark:hover:bg-gray-600 transition-colors"
               >
                 Atrás
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600 disabled:bg-gray-400"
+                className="bg-[#2968FB] text-white px-6 py-2 rounded hover:bg-[#1e54d4] disabled:bg-gray-400 dark:disabled:bg-gray-600 transition-all"
               >
                 {loading ? 'Procesando...' : 'Suscribirse'}
               </button>
@@ -509,16 +511,16 @@ export default function SubscriptionForm() {
       {step === 4 && (
         <div className="text-center">
           <div className="mb-6">
-            <svg className="mx-auto h-16 w-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="mx-auto h-16 w-16 text-green-500 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-2xl font-semibold mb-4">¡Suscripción Exitosa!</h2>
-          <p className="text-gray-600 mb-4">Tu suscripción ha sido creada correctamente.</p>
-          <div className="bg-gray-50 p-4 rounded mb-4 text-left">
-            <p><strong>Plan:</strong> {selectedPlan?.name} - {selectedPlan?.currency} {((selectedPlan?.amount || 0) / 100).toFixed(2)}</p>
-            <p><strong>Cliente ID:</strong> {customerId}</p>
-            <p><strong>Tarjeta ID:</strong> {cardId}</p>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">¡Suscripción Exitosa!</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">Tu suscripción ha sido creada correctamente.</p>
+          <div className="bg-gray-50 dark:bg-[#1b1d2d] p-4 rounded mb-4 text-left border border-gray-200 dark:border-gray-700">
+            <p className="text-gray-900 dark:text-white"><strong>Plan:</strong> {selectedPlan?.name} - {selectedPlan?.currency} {((selectedPlan?.amount || 0) / 100).toFixed(2)}</p>
+            <p className="text-gray-900 dark:text-white"><strong>Cliente ID:</strong> {customerId}</p>
+            <p className="text-gray-900 dark:text-white"><strong>Tarjeta ID:</strong> {cardId}</p>
           </div>
           <button
             onClick={() => {
@@ -537,7 +539,7 @@ export default function SubscriptionForm() {
                 phoneNumber: '',
               });
             }}
-            className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600"
+            className="bg-[#2968FB] text-white px-6 py-2 rounded hover:bg-[#1e54d4] transition-colors"
           >
             Nueva Suscripción
           </button>

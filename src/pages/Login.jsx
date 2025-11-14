@@ -9,7 +9,6 @@ const Login = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
 
@@ -35,10 +34,8 @@ const Login = () => {
       }
 
       setSuccess(true);
-      // Guardar email en sessionStorage para la siguiente página
       sessionStorage.setItem('loginEmail', email);
 
-      // Redirigir a la página de verificación después de 2 segundos
       setTimeout(() => {
         navigate('/verify-code');
       }, 2000);
@@ -50,23 +47,26 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0d1117] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-md w-full space-y-8">
         {/* Logo and Title */}
         <div className="text-center">
-          <h2 className="mt-6 text-4xl font-extrabold text-gray-900">
+          <div className="flex justify-center mb-6">
+            <img src="/images/rumbo_logo.png" alt="Rumbo" className="h-16 w-auto" />
+          </div>
+          <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white">
             Iniciar Sesión
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
             Ingresa tu correo para recibir un código de verificación
           </p>
         </div>
 
         {/* Form */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-[#0b0e16] rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-800">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
-              <div className="rounded-lg bg-red-50 border border-red-200 p-4">
+              <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
@@ -74,14 +74,14 @@ const Login = () => {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm text-red-800">{error}</p>
+                    <p className="text-sm text-red-800 dark:text-red-200">{error}</p>
                   </div>
                 </div>
               </div>
             )}
 
             {success && (
-              <div className="rounded-lg bg-green-50 border border-green-200 p-4">
+              <div className="rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
@@ -89,7 +89,7 @@ const Login = () => {
                     </svg>
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm text-green-800">
+                    <p className="text-sm text-green-800 dark:text-green-200">
                       ¡Código enviado! Revisa tu correo electrónico.
                     </p>
                   </div>
@@ -98,7 +98,7 @@ const Login = () => {
             )}
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Correo Electrónico
               </label>
               <input
@@ -109,7 +109,7 @@ const Login = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="appearance-none block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                className="appearance-none block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#2968FB] focus:border-transparent transition-all bg-white dark:bg-[#1b1d2d] text-gray-900 dark:text-white"
                 placeholder="tu@email.com"
                 disabled={loading || success}
               />
@@ -118,7 +118,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading || success}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02]"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#2968FB] hover:bg-[#1e54d4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2968FB] disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-[1.02]"
             >
               {loading ? (
                 <div className="flex items-center">
@@ -137,13 +137,13 @@ const Login = () => {
           </form>
 
           {/* Info Box */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
             <div className="flex items-start">
-              <svg className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div className="ml-3">
-                <p className="text-sm text-blue-800">
+                <p className="text-sm text-blue-800 dark:text-blue-200">
                   Te enviaremos un código de 6 dígitos a tu correo. Revisa también tu carpeta de spam.
                 </p>
               </div>
@@ -152,16 +152,16 @@ const Login = () => {
         </div>
 
         {/* Security Info */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex items-center justify-center space-x-8 text-sm text-gray-600">
+        <div className="bg-white dark:bg-[#0b0e16] rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-800">
+          <div className="flex items-center justify-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
             <div className="flex items-center">
-              <svg className="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-green-600 dark:text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               Conexión Segura
             </div>
             <div className="flex items-center">
-              <svg className="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-[#2968FB] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               Datos Protegidos

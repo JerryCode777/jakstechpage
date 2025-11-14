@@ -1,98 +1,73 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import RumboLogo from '../components/RumboLogo';
+// import Lottie from 'lottie-react';
+// import boyPencilAnimation from '../assets/boy-pencil.json'; // Descomenta cuando tengas el archivo
 
 const Home = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    if (newTheme) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
-
+  const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0d1117] transition-colors duration-300">
-      {/* Header with Theme Toggle */}
-      <header className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0d1117] sticky top-0 z-50 backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-semibold text-gray-900 dark:text-white">JAKS Tech</h1>
-
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Toggle theme"
-          >
-            {isDark ? (
-              <svg className="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            ) : (
-              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </header>
-
+    <div>
       {/* Hero Section */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-20 md:py-32 bg-gray-50 dark:bg-[#0d1117] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="inline-block">
-                <img
-                  src="/images/rumbo_logo.png"
-                  alt="Rumbo"
-                  className="h-16 w-auto"
-                />
+            {/* Lado izquierdo: Logo creativo con animación */}
+            <div className="space-y-12">
+              {/* Logo Rumbo con diseño impresionante */}
+              <div className="flex justify-center lg:justify-start">
+                <RumboLogo />
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                Aprende a tu ritmo
-              </h2>
+              {/* Descripción */}
+              <div className="text-center lg:text-left space-y-6">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                  Aprende a tu ritmo
+                </h2>
 
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-                Plataforma educativa con contenido interactivo, seguimiento personalizado y herramientas que impulsan tu aprendizaje.
-              </p>
+                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Plataforma educativa con contenido interactivo, seguimiento personalizado y herramientas que impulsan tu aprendizaje.
+                </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#planes"
-                  className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[#2968FB] hover:bg-[#1e54d4] rounded-lg transition-colors duration-200"
-                >
-                  Ver Planes
-                </a>
-                <a
-                  href="#features"
-                  className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200"
-                >
-                  Más información
-                </a>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button
+                    onClick={() => navigate('/login')}
+                    className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-[#2968FB] hover:bg-[#1e54d4] rounded-lg transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    Comenzar Ahora
+                  </button>
+                  <a
+                    href="#features"
+                    className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-gray-700 dark:text-gray-300 border-2 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-200 hover:scale-105"
+                  >
+                    Más información
+                  </a>
+                </div>
               </div>
             </div>
 
+            {/* Lado derecho: Animación Lottie */}
             <div className="flex justify-center lg:justify-end">
-              <img
-                src="/images/llamasinfondof.png"
-                alt="Rumbo Mascot"
-                className="w-full max-w-md h-auto"
-              />
+              {/* Placeholder para la animación - reemplazar cuando tengas el archivo */}
+              <div className="relative w-full max-w-lg">
+                {/* Efecto de brillo de fondo */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2968FB]/20 to-[#A42EFF]/20 blur-3xl rounded-full"></div>
+
+                {/* Imagen temporal - reemplazar con Lottie */}
+                <img
+                  src="/images/llamasinfondof.png"
+                  alt="Rumbo Mascot"
+                  className="relative w-full h-auto drop-shadow-2xl animate-bounce-slow"
+                />
+
+                {/* Descomenta esto cuando tengas el archivo boy-pencil.json
+                <Lottie
+                  animationData={boyPencilAnimation}
+                  loop={true}
+                  className="w-full h-auto"
+                />
+                */}
+              </div>
             </div>
           </div>
         </div>
@@ -108,19 +83,23 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
+                icon: '📚',
                 title: 'Contenido de Calidad',
                 description: 'Material educativo creado por expertos, adaptado a tu nivel'
               },
               {
+                icon: '📊',
                 title: 'Seguimiento Personalizado',
                 description: 'Monitorea tu progreso con estadísticas detalladas'
               },
               {
+                icon: '🎯',
                 title: 'Aprendizaje Interactivo',
                 description: 'Ejercicios prácticos y quizzes que hacen el aprendizaje efectivo'
               }
             ].map((feature, index) => (
               <div key={index} className="p-8 rounded-2xl bg-gray-50 dark:bg-[#1b1d2d] hover:scale-105 transition-transform duration-200">
+                <div className="text-5xl mb-4">{feature.icon}</div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   {feature.title}
                 </h4>
@@ -134,7 +113,7 @@ const Home = () => {
       </section>
 
       {/* Pricing Section */}
-      <section id="planes" className="py-20">
+      <section id="planes" className="py-20 bg-gray-50 dark:bg-[#0d1117]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -172,7 +151,10 @@ const Home = () => {
                 ))}
               </ul>
 
-              <button className="w-full py-3 px-6 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors">
+              <button
+                onClick={() => navigate('/login')}
+                className="w-full py-3 px-6 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 font-medium transition-colors"
+              >
                 Comenzar Gratis
               </button>
             </div>
@@ -211,69 +193,16 @@ const Home = () => {
                 ))}
               </ul>
 
-              <button className="w-full py-3 px-6 text-white bg-[#2968FB] hover:bg-[#1e54d4] rounded-lg font-medium transition-colors">
+              <button
+                onClick={() => navigate('/login')}
+                className="w-full py-3 px-6 text-white bg-[#2968FB] hover:bg-[#1e54d4] rounded-lg font-medium transition-colors"
+              >
                 Obtener Premium
               </button>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Contact Section */}
-      <section id="contacto" className="py-20 bg-white dark:bg-[#0b0e16]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Contacto
-            </h3>
-          </div>
-
-          <div className="max-w-2xl mx-auto bg-gray-50 dark:bg-[#1b1d2d] rounded-2xl p-8 md:p-12">
-            <div className="space-y-6">
-              <div className="flex items-center">
-                <span className="font-medium text-gray-900 dark:text-white w-32">Email</span>
-                <a href="mailto:contacto@jakstech.net" className="text-[#2968FB] hover:underline">
-                  contacto@jakstech.net
-                </a>
-              </div>
-
-              <div className="flex items-center">
-                <span className="font-medium text-gray-900 dark:text-white w-32">Ubicación</span>
-                <span className="text-gray-700 dark:text-gray-300">Lima, Perú</span>
-              </div>
-
-              <div className="flex items-center">
-                <span className="font-medium text-gray-900 dark:text-white w-32">RUC</span>
-                <span className="text-gray-700 dark:text-gray-300">20614811804</span>
-              </div>
-
-              <div className="flex items-center">
-                <span className="font-medium text-gray-900 dark:text-white w-32">Razón Social</span>
-                <span className="text-gray-700 dark:text-gray-300">JAKS Tech SAC</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-800 py-12">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center space-y-4">
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              © {new Date().getFullYear()} JAKS Tech SAC. Todos los derechos reservados.
-            </p>
-            <div className="flex justify-center gap-6 text-sm">
-              <a href="/terminos-condiciones" className="text-gray-600 dark:text-gray-400 hover:text-[#2968FB] dark:hover:text-[#2968FB] transition-colors">
-                Términos y Condiciones
-              </a>
-              <a href="/politica-privacidad" className="text-gray-600 dark:text-gray-400 hover:text-[#2968FB] dark:hover:text-[#2968FB] transition-colors">
-                Política de Privacidad
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
