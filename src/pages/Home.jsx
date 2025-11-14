@@ -1,9 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import RumboLogo from '../components/RumboLogo';
-import llamaMascot from '../assets/images/illustrations/llamasinfondof.png';
-// import Lottie from 'lottie-react';
-// import boyPencilAnimation from '../assets/boy-pencil.json'; // Descomenta cuando tengas el archivo
+import LottieAnimation from '../components/LottieAnimation';
+
+// Importar animaciones
+import boyOnPencil from '../assets/animations/education/boy_on_pencil.lottie';
+import reading from '../assets/animations/education/reading.lottie';
+import progress from '../assets/animations/education/progress.lottie';
+import achievement from '../assets/animations/education/achievement.lottie';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -49,25 +53,18 @@ const Home = () => {
 
             {/* Lado derecho: Animación Lottie */}
             <div className="flex justify-center lg:justify-end">
-              {/* Placeholder para la animación - reemplazar cuando tengas el archivo */}
               <div className="relative w-full max-w-lg">
                 {/* Efecto de brillo de fondo */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2968FB]/20 to-[#A42EFF]/20 blur-3xl rounded-full"></div>
 
-                {/* Imagen temporal - reemplazar con Lottie */}
-                <img
-                  src={llamaMascot}
-                  alt="Rumbo Mascot"
-                  className="relative w-full h-auto drop-shadow-2xl animate-bounce-slow"
-                />
-
-                {/* Descomenta esto cuando tengas el archivo boy-pencil.json
-                <Lottie
-                  animationData={boyPencilAnimation}
-                  loop={true}
-                  className="w-full h-auto"
-                />
-                */}
+                {/* Animación Boy on Pencil */}
+                <div className="relative">
+                  <LottieAnimation
+                    src={boyOnPencil}
+                    loop={true}
+                    className="w-full h-auto drop-shadow-2xl"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -84,23 +81,29 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: '📚',
+                animation: reading,
                 title: 'Contenido de Calidad',
                 description: 'Material educativo creado por expertos, adaptado a tu nivel'
               },
               {
-                icon: '📊',
+                animation: progress,
                 title: 'Seguimiento Personalizado',
                 description: 'Monitorea tu progreso con estadísticas detalladas'
               },
               {
-                icon: '🎯',
+                animation: achievement,
                 title: 'Aprendizaje Interactivo',
                 description: 'Ejercicios prácticos y quizzes que hacen el aprendizaje efectivo'
               }
             ].map((feature, index) => (
               <div key={index} className="p-8 rounded-2xl bg-gray-50 dark:bg-[#1b1d2d] hover:scale-105 transition-transform duration-200">
-                <div className="text-5xl mb-4">{feature.icon}</div>
+                <div className="w-24 h-24 mx-auto mb-4">
+                  <LottieAnimation
+                    src={feature.animation}
+                    loop={true}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   {feature.title}
                 </h4>
