@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_ENDPOINTS } from '../config/api';
+import { API_ENDPOINTS } from '../../config/api';
 
 // Usa la variable de entorno (funciona tanto en local como en producción)
 const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -86,7 +86,7 @@ export default function SubscriptionForm() {
     script.async = true;
     script.onload = () => {
       if (window.Culqi) {
-        window.Culqi.publicKey = 'pk_test_CkaXn5LAdfuueptU';
+        window.Culqi.publicKey = import.meta.env.VITE_CULQI_PUBLIC_KEY;
         window.Culqi.init();
 
         // Configurar settings requeridos

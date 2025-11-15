@@ -1,6 +1,4 @@
 // Configuración centralizada de la API
-// Usa variables de entorno de Vite (VITE_*)
-
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 // Endpoints de la API
