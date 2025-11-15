@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 
 const VerifyCode = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const VerifyCode = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/auth/login-with-code', {
+      const response = await fetch(API_ENDPOINTS.loginWithCode, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +59,7 @@ const VerifyCode = () => {
     setResending(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/auth/send-login-code', {
+      const response = await fetch(API_ENDPOINTS.sendLoginCode, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

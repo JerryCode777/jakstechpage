@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 
-const API_URL = 'http://localhost:8080/api/v1/culqi';
+// Usa la variable de entorno (funciona tanto en local como en producción)
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api/v1';
+const API_URL = `${API_BASE_URL}/culqi`;
 
 export default function SubscriptionForm() {
   const [step, setStep] = useState(1);
@@ -219,7 +222,7 @@ export default function SubscriptionForm() {
 
               // NUEVO: Activar Premium inmediatamente (no esperar webhook)
               try {
-                const activateResponse = await fetch('http://localhost:8080/api/v1/subscription/activate', {
+                const activateResponse = await fetch(API_ENDPOINTS.activateSubscription, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

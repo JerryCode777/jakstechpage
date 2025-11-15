@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import rumboLogo from '../assets/images/logos/rumbo_logo.png';
+import { API_ENDPOINTS } from '../config/api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8080/api/v1/auth/send-login-code', {
+      const response = await fetch(API_ENDPOINTS.sendLoginCode, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
